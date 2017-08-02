@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Page Index</title>
+</h:head>
+<h:body>
+
+<ui:insert name="header">
+<ui:include src="/templates/headerTemplates.xhtml"></ui:include>
+</ui:insert>
+
+<!-- pour afficher un trait horizontal -->
+<p:separator/>
+<h1 style="text-align: center; color: red;">Liste des employes</h1>
+
+
+<p:dataTable var="employe" value="#{empMB.liste}">
+    <p:column headerText="Id">
+        <h:outputText value="#{employe.id}" />
+    </p:column>
+ 
+    <p:column headerText="Nom">
+        <h:outputText value="#{employe.nom}" />
+    </p:column>
+ 
+    <p:column headerText="Prenom">
+        <h:outputText value="#{employe.prenom}" />
+    </p:column>
+ 
+    <p:column headerText="Salaire">
+        <h:outputText value="#{employe.salaire}" />
+    </p:column>
+</p:dataTable>
+
+
+</h:body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Page Modification</title>
+</h:head>
+<h:body>
+
+<ui:insert name="header">
+<ui:include src="/templates/headerTemplates.xhtml"></ui:include>
+</ui:insert>
+
+<!-- pour afficher un trait horizontal -->
+<p:separator/>
+<h1 style="text-align: center; color: red;">Liste des employes par ID</h1>
+
+
+<p:separator/>
+
+
+
+<h:form>
+<h:panelGrid columns="2">
+
+
+<p:outputLabel for="idId" value="Id" />
+        <p:inputMask id="idId" value="#{empMB.employe.id}"/>
+
+<p:outputLabel for="idNom" value="Nom" />
+        <p:inputMask id="idNom" value="#{empMB.employe.nom}"/>
+        
+        <p:outputLabel for="idPrenom" value="Prenom" />
+        <p:inputMask id="idPrenom" value="#{empMB.employe.prenom}"/>
+        
+        
+            <p:outputLabel for="idSalaire" value="idSalaire" />
+        <p:inputMask id="idSalaire" value="#{empMB.employe.salaire}"/>    
+        
+        
+
+</h:panelGrid>
+<p:commandButton value="modifier" action="#{empMB.modifEmploye}" update= "@all" />
+
+
+</h:form>
+
+</h:body>
+</html>

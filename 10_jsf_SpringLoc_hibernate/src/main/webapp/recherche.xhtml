@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Page Recherche</title>
+</h:head>
+<h:body>
+
+
+	<ui:insert name="header">
+		<ui:include src="/templates/headerTemplates.xhtml"></ui:include>
+	</ui:insert>
+
+	<p:separator />
+
+	<h:form>
+		<h:panelGrid columns="2">
+
+			<p:outputLabel for="id" value="Id: " />
+			<p:inputMask id="id" value="#{empMB.employe.id}" />
+
+		</h:panelGrid>
+
+		<p:commandButton value="rechercher"
+			action="#{empMB.rechercherEmploye}" update="@all" />
+
+	</h:form>
+	<p:separator />
+
+	<h1 style="text-align: center; color: red;">Employé trouvé</h1>
+
+	<p:dataTable var="employe" value="#{empMB.employe}">
+		<p:column headerText="Id">
+			<h:outputText value="#{employe.id}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{employe.nom}" />
+		</p:column>
+
+		<p:column headerText="Prenom">
+			<h:outputText value="#{employe.prenom}" />
+		</p:column>
+
+		<p:column headerText="Salaire">
+			<h:outputText value="#{employe.salaire}" />
+		</p:column>
+	</p:dataTable>
+
+
+</h:body>
+</html>
